@@ -39,7 +39,7 @@ def print_result(filename, name, distance, show_distance=False):
         print("{},{}".format(filename, name))
 
 
-def test_image(image_to_check, known_names, known_face_encodings, tolerance=0.6, show_distance=False):
+def test_image(image_to_check, known_names, known_face_encodings, tolerance=0.3, show_distance=True:
     unknown_image = face_recognition.load_image_file(image_to_check)
 
     # Scale down image if it's giant so things run a little faster
