@@ -68,7 +68,7 @@ while True:
         face_names = []
         for face_encoding in face_encodings:
             # See if the face is a match for the known face(s)
-            matches = face_recognition.compare_faces(known_face_encodings, face_encoding, tolerance=0.50)
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding, tolerance=0.55)
             name = "Unknown"
 
             # # If a match was found in known_face_encodings, just use the first one.
@@ -102,6 +102,9 @@ while True:
         cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+
+        if name == 'Unknown':
+            cv2.putText(frame, 'Unknown Person Detected!', (100,100), font, 3.0, (0, 0, 255), 5)
 
     # Display the resulting image
     cv2.imshow('Video', frame)

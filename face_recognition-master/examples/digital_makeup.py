@@ -1,8 +1,14 @@
 from PIL import Image, ImageDraw
 import face_recognition
+import os
+
+currentPath = os.getcwd()
+print(currentPath)
+
+os.chdir(currentPath+'/examples/')
 
 # Load the jpg file into a numpy array
-image = face_recognition.load_image_file("biden.jpg")
+image = face_recognition.load_image_file("obama.jpg")
 
 # Find all facial features in all the faces in the image
 face_landmarks_list = face_recognition.face_landmarks(image)
